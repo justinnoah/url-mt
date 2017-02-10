@@ -1,0 +1,8 @@
+{
+  "authors": ["Justin Noah <justinnoah@gmail.com>"],
+  "name": "url",
+  "version": "0.1",
+  "paths": [".", "./src"],
+  "entrypoint": "./src/url",
+  "dependencies": {}
+}
