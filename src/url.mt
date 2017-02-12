@@ -129,6 +129,15 @@ def makeParsedURL(url :Str) as DeepFrozen:
             return parse_qs(parsed["query"])
         to fragment():
             return parsed["fragment"]
+        to realm():
+            "scheme + netloc := realm used by OAuth"
+            var _url := ""
+            if (parsed["scheme"].size() > 0):
+                _url += parsed["scheme"] + ":"
+            _url += "//"
+            if (parsed["netloc"].size() > 0):
+                _url += parsed["netloc"]
+            return _url
         to asMap():
             return parsed
         to asString():
@@ -158,4 +167,3 @@ def test_parseQSL(assert):
 unittest([
     test_parseQSL,
 ])
-
